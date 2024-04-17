@@ -1,0 +1,17 @@
+{
+    "name": "wordpress-plugin/cotizador-plugin",
+    "description": "Cotizador plugin para Wordpress basado en un archivo excel",
+    "type": "project",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "WordpressPlugin\\CotizadorPlugin\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Luis Jose Medina",
+            "email": "luis06jose@gmail.com"
+        }
+    ]
+}
