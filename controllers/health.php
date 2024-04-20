@@ -15,14 +15,33 @@ function get_health($request)
     return $results;
 }
 
-function get_health_insured_sum($request)
+function get_health_companies($request)
+{
+    global $wpdb;
+    $type = $request->get_param('type');
+    $query = "SELECT `company` FROM `wp81_sq_health` WHERE `type`='$type' GROUP BY `company` DESC";
+    $results = $wpdb->get_results($query);
+    $response = Array();
+
+    for ($i=0; $i < count($results); $i++) { 
+        $response[] = $results[$i]->company;
+    }
+    return $response;
+}
+
+function get_health_insured_sums($request)
 {
     global $wpdb;
     $company = $request->get_param('company');
     $type = $request->get_param('type');
-    $query = "SELECT `insured_sum` FROM `wp81_sq_health` WHERE `company`='$company' AND `type`='$type' GROUP BY `insured_sum`";
+    $query = "SELECT `insured_sum` FROM `wp81_sq_health` WHERE `company` = '$company' AND `type` = '$type' GROUP BY `insured_sum` ORDER BY CAST(REPLACE(`insured_sum`, ',', '') AS UNSIGNED) ASC";
     $results = $wpdb->get_results($query);
-    return $results;
+    $response = Array();
+
+    for ($i=0; $i < count($results); $i++) { 
+        $response[] = $results[$i]->insured_sum;
+    }
+    return $response;
 }
 
 
