@@ -39,3 +39,13 @@ function sq_life_quoter()
 <?php
 }
 add_shortcode('sq_life', 'sq_life_quoter'); // Cotizador de vida
+
+function sq_transport_quoter()
+{
+?>
+    <div id="sabedese-app">
+        <transport-quoter></transport-quoter>
+    </div>
+<?php
+}
+add_shortcode('sq_transport', 'sq_transport_quoter'); // Cotizador de transporte
