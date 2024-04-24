@@ -19,3 +19,13 @@ function sq_funeral_quoter()
 <?php
 }
 add_shortcode('sq_funeral', 'sq_funeral_quoter'); // Cotizador funerario
+
+function sq_personal_accidents_quoter()
+{
+?>
+    <div id="sabedese-app">
+        <accidents-quoter></accidents-quoter>
+    </div>
+<?php
+}
+add_shortcode('sq_accidents', 'sq_personal_accidents_quoter'); // Cotizador de accidentes personales
