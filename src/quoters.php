@@ -29,3 +29,13 @@ function sq_personal_accidents_quoter()
 <?php
 }
 add_shortcode('sq_accidents', 'sq_personal_accidents_quoter'); // Cotizador de accidentes personales
+
+function sq_life_quoter()
+{
+?>
+    <div id="sabedese-app">
+        <life-quoter></life-quoter>
+    </div>
+<?php
+}
+add_shortcode('sq_life', 'sq_life_quoter'); // Cotizador de vida
