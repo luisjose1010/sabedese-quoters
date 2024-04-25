@@ -49,3 +49,13 @@ function sq_transport_quoter()
 <?php
 }
 add_shortcode('sq_transport', 'sq_transport_quoter'); // Cotizador de transporte
+
+function sq_car_quoter()
+{
+?>
+    <div id="sabedese-app">
+        <car-quoter></car-quoter>
+    </div>
+<?php
+}
+add_shortcode('sq_car', 'sq_car_quoter'); // Cotizador de auto
