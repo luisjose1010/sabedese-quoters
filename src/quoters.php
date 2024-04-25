@@ -59,3 +59,13 @@ function sq_car_quoter()
 <?php
 }
 add_shortcode('sq_car', 'sq_car_quoter'); // Cotizador de auto
+
+function sq_patrimonial_quoter()
+{
+?>
+    <div id="sabedese-app">
+        <patrimonial-quoter></patrimonial-quoter>
+    </div>
+<?php
+}
+add_shortcode('sq_patrimonial', 'sq_patrimonial_quoter'); // Cotizador de patrimoniales
