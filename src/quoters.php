@@ -69,3 +69,13 @@ function sq_patrimonial_quoter()
 <?php
 }
 add_shortcode('sq_patrimonial', 'sq_patrimonial_quoter'); // Cotizador de patrimoniales
+
+function sq_surety_quoter()
+{
+?>
+    <div id="sabedese-app">
+        <surety-quoter></surety-quoter>
+    </div>
+<?php
+}
+add_shortcode('sq_surety', 'sq_surety_quoter'); // Cotizador de fianzas
