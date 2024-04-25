@@ -79,3 +79,13 @@ function sq_surety_quoter()
 <?php
 }
 add_shortcode('sq_surety', 'sq_surety_quoter'); // Cotizador de fianzas
+
+function sq_pet_quoter()
+{
+?>
+    <div id="sabedese-app">
+        <pet-quoter></pet-quoter>
+    </div>
+<?php
+}
+add_shortcode('sq_pet', 'sq_pet_quoter'); // Cotizador de mascotas
