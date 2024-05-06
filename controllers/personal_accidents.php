@@ -3,16 +3,18 @@
 function post_personal_accidents($request)
 {
     $request_body = $request->get_json_params();
-    $to = ['luis06jose@gmail.com', $request_body['client']['email']];
-    //$to = ['asecaventas2@gmail.com', 'jmontes1aseca@gmail.com', $request_body['client']['email'], 'luis06jose@gmail.com'];
+    // $to = ['luis06jose@gmail.com', $request_body['client']['email']];
+    $to = ['asecaventas2@gmail.com', 'jmontes1aseca@gmail.com', $request_body['client']['email'], 'luis06jose@gmail.com'];
     $subject = "Cotización de Accidentes Personales: {$request_body['client']['name']}";
     $message = '';
 
-    $message .= "<h1>Cotización Funerario: {$request_body['client']['name']} ({$request_body['client']['idCard']})</h1>";
+    $message .= "<h1>Cotización Accidentes Personales: {$request_body['client']['name']} ({$request_body['client']['idCard']})</h1>";
+    $message .= "<p><b>Nombre: </b>{$request_body['client']['name']}</p>";
+    $message .= "<p><b>Cédula: </b>{$request_body['client']['idCard']}</p>";
     $message .= "<p><b>Edad: </b>{$request_body['client']['age']}</p>";
-    $message .= "<p><b>Número: </b>{$request_body['client']['phoneNumber']}</p>";
+    $message .= "<p><b>Número telefónico: </b>{$request_body['client']['phoneNumber']}</p>";
     $message .= "<p><b>Correo electrónico: </b>{$request_body['client']['email']}</p>";
-    $message .= "<p><b>Correo electrónico: </b>{$request_body['client']['occupation']}</p>";
+    $message .= "<p><b>Ocupación: </b>{$request_body['client']['occupation']}</p>";
     $message .= "<p><b>Tipo: </b>{$request_body['accidentsData']['type']}</p>";
     $message .= "<hr>";
 
@@ -24,7 +26,7 @@ function post_personal_accidents($request)
     $message .= "<hr>";
     $message .= "<br>";
 
-    $message .= "<a href='https://sabedeseguros.com/cotizador-funerario' class='button' style='background-color: #1867C0; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 0.5rem;'>Nueva cotización</a>";
+    $message .= "<a href='https://sabedeseguros.com/cotizador-accidentes-personales' class='button' style='background-color: #1867C0; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 0.5rem;'>Nueva cotización</a>";
     $message .= "<br><br>";
     $message .= "<a href='https://sabedeseguros.com/citas/' class='button' style='background-color: #04AA6D; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 0.5rem;'>Agendar cita</a>";
 

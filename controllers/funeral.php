@@ -9,8 +9,10 @@ function post_funeral($request)
     $message = '';
 
     $message .= "<h1>Cotización Funerario: {$request_body['client']['name']} ({$request_body['client']['idCard']})</h1>";
+    $message .= "<p><b>Nombre: </b>{$request_body['client']['name']}</p>";
+    $message .= "<p><b>Cédula: </b>{$request_body['client']['idCard']}</p>";
     $message .= "<p><b>Edad: </b>{$request_body['client']['age']}</p>";
-    $message .= "<p><b>Número: </b>{$request_body['client']['phoneNumber']}</p>";
+    $message .= "<p><b>Número telefónico: </b>{$request_body['client']['phoneNumber']}</p>";
     $message .= "<p><b>Correo electrónico: </b>{$request_body['client']['email']}</p>";
     $message .= "<p><b>Tipo: </b>{$request_body['funeralData']['type']}</p>";
     $message .= "<hr>";

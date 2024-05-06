@@ -53,9 +53,11 @@ function post_health($request)
     $subject = "Cotización de Salud: {$request_body['client']['name']}";
     $message = '';
 
-    $message .= "<h1>Cotización de Salud: {$request_body['client']['name']} ({$request_body['client']['idCard']})</h1>";
+    $message .= "<h1>Cotización Salud: {$request_body['client']['name']} ({$request_body['client']['idCard']})</h1>";
+    $message .= "<p><b>Nombre: </b>{$request_body['client']['name']}</p>";
+    $message .= "<p><b>Cédula: </b>{$request_body['client']['idCard']}</p>";
     $message .= "<p><b>Edad: </b>{$request_body['client']['age']}</p>";
-    $message .= "<p><b>Número: </b>{$request_body['client']['phoneNumber']}</p>";
+    $message .= "<p><b>Número telefónico: </b>{$request_body['client']['phoneNumber']}</p>";
     $message .= "<p><b>Correo electrónico: </b>{$request_body['client']['email']}</p>";
     $message .= "<hr>";
     $message .= "<p><b>Empresa: </b>{$request_body['healthData']['company']}</p>";

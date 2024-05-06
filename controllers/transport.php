@@ -24,7 +24,7 @@ function post_transport($request)
     $message .= "<hr>";
     $message .= "<br>";
 
-    $message .= "<a href='https://sabedeseguros.com/cotizador-funerario' class='button' style='background-color: #1867C0; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 0.5rem;'>Nueva cotización</a>";
+    $message .= "<a href='https://sabedeseguros.com/cotizador-transporte' class='button' style='background-color: #1867C0; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 0.5rem;'>Nueva cotización</a>";
     $message .= "<br><br>";
     $message .= "<a href='https://sabedeseguros.com/citas/' class='button' style='background-color: #04AA6D; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 0.5rem;'>Agendar cita</a>";
 

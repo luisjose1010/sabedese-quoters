@@ -18,7 +18,7 @@ function post_patrimonial($request)
         $message .= "<p><b>Nombre: </b>{$request_body['company']['name']}</p>";
         $message .= "<p><b>RIF: </b>{$request_body['company']['rif']}</p>";
         $message .= "<p><b>Correo electrónico: </b>{$request_body['company']['email']}</p>";
-        $message .= "<p><b>Número de teléfono: </b>{$request_body['company']['phoneNumber']}</p>";
+        $message .= "<p><b>Número telefónico: </b>{$request_body['company']['phoneNumber']}</p>";
         $message .= "<p><b>Persona a cargo: </b>{$request_body['company']['owner']}</p>";
         $message .= "<hr>";
         $message .= "<br>";
@@ -31,7 +31,7 @@ function post_patrimonial($request)
         $message .= "<p><b>Nombre: </b>{$request_body['client']['name']}</p>";
         $message .= "<p><b>Cédula: </b>{$request_body['client']['idCard']}</p>";
         $message .= "<p><b>Edad: </b>{$request_body['client']['age']}</p>";
-        $message .= "<p><b>Número de teléfono: </b>{$request_body['client']['phoneNumber']}</p>";
+        $message .= "<p><b>Número telefónico: </b>{$request_body['client']['phoneNumber']}</p>";
         $message .= "<p><b>Correo electrónico: </b>{$request_body['client']['email']}</p>";
         $message .= "<hr>";
         $message .= "<br>";
@@ -45,7 +45,7 @@ function post_patrimonial($request)
     $message .= "<hr>";
     $message .= "<br>";
 
-    $message .= "<a href='https://sabedeseguros.com/cotizador-automovil' class='button' style='background-color: #1867C0; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 0.5rem;'>Nueva cotización</a>";
+    $message .= "<a href='https://sabedeseguros.com/cotizador-patrimoniales' class='button' style='background-color: #1867C0; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 0.5rem;'>Nueva cotización</a>";
     $message .= "<br><br>";
     $message .= "<a href='https://sabedeseguros.com/citas/' class='button' style='background-color: #04AA6D; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 0.5rem;'>Agendar cita</a>";
 
