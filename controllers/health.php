@@ -19,7 +19,7 @@ function get_health_companies($request)
 {
     global $wpdb;
     $type = $request->get_param('type');
-    $query = "SELECT `company` FROM `wp81_sq_health` WHERE `type`='$type' GROUP BY `company` DESC";
+    $query = "SELECT `company` FROM `wp81_sq_health` WHERE `type`='$type' GROUP BY `company`";
     $results = $wpdb->get_results($query);
     $response = Array();
 
