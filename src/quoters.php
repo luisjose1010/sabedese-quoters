@@ -89,3 +89,13 @@ function sq_pet_quoter()
 <?php
 }
 add_shortcode('sq_pet', 'sq_pet_quoter'); // Cotizador de mascotas
+
+function sq_all_quoters()
+{
+?>
+    <div id="sabedese-app">
+        <dropdown-quoters></dropdown-quoters>
+    </div>
+<?php
+}
+add_shortcode('sq_all_quoters', 'sq_all_quoters'); // Cotizadores desplegables
