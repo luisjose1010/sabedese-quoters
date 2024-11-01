@@ -10,7 +10,7 @@ function get_health($request)
     $company = $request->get_param('company');
     $type = $request->get_param('type');
     $insuredSum = $request->get_param('insured_sum');
-    $query = "SELECT * FROM `wp81_sq_health` WHERE `company`='$company' AND `type`='$type' AND `insured_sum`='$insuredSum'";
+    $query = $wpdb->prepare("SELECT * FROM `wp81_sq_health` WHERE `company`=%s AND `type`=%s AND `insured_sum`=%s", [$company, $type, $insuredSum]);
     $results = $wpdb->get_results($query);
     return $results;
 }
@@ -19,7 +19,7 @@ function get_health_companies($request)
 {
     global $wpdb;
     $type = $request->get_param('type');
-    $query = "SELECT `company` FROM `wp81_sq_health` WHERE `type`='$type' GROUP BY `company`";
+    $query = $wpdb->prepare("SELECT `company` FROM `wp81_sq_health` WHERE `type`=%s GROUP BY `company`", $type);
     $results = $wpdb->get_results($query);
     $response = Array();
 
@@ -34,7 +34,7 @@ function get_health_insured_sums($request)
     global $wpdb;
     $company = $request->get_param('company');
     $type = $request->get_param('type');
-    $query = "SELECT `insured_sum` FROM `wp81_sq_health` WHERE `company` = '$company' AND `type` = '$type' GROUP BY `insured_sum` ORDER BY CAST(REPLACE(`insured_sum`, ',', '') AS UNSIGNED) ASC";
+    $query = $wpdb->prepare("SELECT `insured_sum` FROM `wp81_sq_health` WHERE `company` = %s AND `type` = %s GROUP BY `insured_sum` ORDER BY CAST(REPLACE(`insured_sum`, ',', '') AS UNSIGNED) ASC", [$company, $type]);
     $results = $wpdb->get_results($query);
     $response = Array();
 
@@ -48,7 +48,6 @@ function get_health_insured_sums($request)
 function post_health($request)
 {
     $request_body = $request->get_json_params();
-    // $to = ['luis06jose@gmail.com', $request_body['client']['email']];
     $to = ['asecaventas2@gmail.com', 'jmontes1aseca@gmail.com', $request_body['client']['email'], 'luis06jose@gmail.com'];
     $subject = "Cotización de Salud: {$request_body['client']['name']}";
     $message = '';
@@ -89,7 +88,7 @@ function post_health($request)
     $message .= "<br><br>";
     $message .= "<a href='https://sabedeseguros.com/citas/' class='button' style='background-color: #04AA6D; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 0.5rem;'>Agendar cita</a>";
 
-    $result = wp_mail($to, $subject, $message, 'Content-Type: text/html;charset=UTF-8' . "\r\n" . 'Bcc: luis_06_jose@hotmail.com');
+    $result = wp_mail($to, $subject, $message, 'Content-Type: text/html;charset=UTF-8');
 
     return $result;
 }
