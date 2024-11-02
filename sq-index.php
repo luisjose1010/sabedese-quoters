@@ -5,7 +5,7 @@ require_once __DIR__ . '/utilities/mime-types.php';
 
 /**
  * @since 0.0.1
- * Plugin Name: Sabedeseguros Quoters Plugin
+ * Plugin Name: Sabedese Quoters
  * Description: Plugin para agregar el cotizador actualizado a la página Web de Wordpress.
  * Version: 0.0.1
  * Author: Luis José Medina

@@ -15,6 +15,10 @@ function get_health($request)
     return $results;
 }
 
+/**
+ * The function `get_health_companies` retrieves a list of health companies based on a specified type
+ * from a WordPress database table.
+ */
 function get_health_companies($request)
 {
     global $wpdb;
@@ -29,6 +33,10 @@ function get_health_companies($request)
     return $response;
 }
 
+/**
+ * The function `get_health_insured_sums` retrieves insured sums from a database table based on company
+ * and type parameters.
+ */
 function get_health_insured_sums($request)
 {
     global $wpdb;
@@ -45,6 +53,10 @@ function get_health_insured_sums($request)
 }
 
 
+/**
+ * The function `post_health` sends an email with the health insurance quotation details to specified
+ * recipients.
+ */
 function post_health($request)
 {
     $request_body = $request->get_json_params();
