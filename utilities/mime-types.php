@@ -1,7 +1,7 @@
 <?php
 
 // Mime Type Checker
-function get_mime($filename)
+function get_mime_type($filename)
 {
     $bName = basename($filename);
     $bName = explode('.', $bName);
@@ -207,14 +207,13 @@ function get_mime($filename)
         'movie'     => 'video/x-sgi-movie',
         'ice'       => 'x-conference/x-cooltalk'
     );
-    if(function_exists('mime_content_type'))
+    if (function_exists('mime_content_type'))
         $mime_type = mime_content_type($filename);
-    else if(function_exists('finfo_open')){
-        $finfo = finfo_open(FILEINFO_MIME); 
-        $mime_type = finfo_file($finfo, $filename); 
-        finfo_close($finfo); 
-    }
-    else if (isset($mimeTypes[$bName]))
+    else if (function_exists('finfo_open')) {
+        $finfo = finfo_open(FILEINFO_MIME);
+        $mime_type = finfo_file($finfo, $filename);
+        finfo_close($finfo);
+    } else if (isset($mimeTypes[$bName]))
         $mime_type = $mimeTypes[$bName];
     else
         $mime_type = 'application/octet-stream';

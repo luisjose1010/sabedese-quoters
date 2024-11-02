@@ -26,7 +26,7 @@ function sq_enqueue_assets()
             // Verifica si el archivo de imagen existe
             if (file_exists($image_path)) {
                 $image_data = file_get_contents($image_path);
-                $mime_type = get_mime($image_path);
+                $mime_type = get_mime_type($image_path);
 
                 // Envía la respuesta de la imagen
                 header("Content-Type: $mime_type");

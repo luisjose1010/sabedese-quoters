@@ -10,8 +10,12 @@ function get_health($request)
     $company = $request->get_param('company');
     $type = $request->get_param('type');
     $insuredSum = $request->get_param('insured_sum');
-    $query = $wpdb->prepare("SELECT * FROM `wp81_sq_health` WHERE `company`=%s AND `type`=%s AND `insured_sum`=%s", [$company, $type, $insuredSum]);
+    $query = $wpdb->prepare(
+        "SELECT * FROM `wp81_sq_health` WHERE `company`=%s AND `type`=%s AND `insured_sum`=%s",
+        [$company, $type, $insuredSum]
+    );
     $results = $wpdb->get_results($query);
+
     return $results;
 }
 
@@ -23,11 +27,14 @@ function get_health_companies($request)
 {
     global $wpdb;
     $type = $request->get_param('type');
-    $query = $wpdb->prepare("SELECT `company` FROM `wp81_sq_health` WHERE `type`=%s GROUP BY `company`", $type);
+    $query = $wpdb->prepare(
+        "SELECT `company` FROM `wp81_sq_health` WHERE `type`=%s GROUP BY `company`",
+        [$type]
+    );
     $results = $wpdb->get_results($query);
-    $response = Array();
+    $response = array();
 
-    for ($i=0; $i < count($results); $i++) { 
+    for ($i = 0; $i < count($results); $i++) {
         $response[] = $results[$i]->company;
     }
     return $response;
@@ -42,11 +49,14 @@ function get_health_insured_sums($request)
     global $wpdb;
     $company = $request->get_param('company');
     $type = $request->get_param('type');
-    $query = $wpdb->prepare("SELECT `insured_sum` FROM `wp81_sq_health` WHERE `company` = %s AND `type` = %s GROUP BY `insured_sum` ORDER BY CAST(REPLACE(`insured_sum`, ',', '') AS UNSIGNED) ASC", [$company, $type]);
+    $query = $wpdb->prepare(
+        "SELECT `insured_sum` FROM `wp81_sq_health` WHERE `company` = %s AND `type` = %s GROUP BY `insured_sum` ORDER BY CAST(REPLACE(`insured_sum`, ',', '') AS UNSIGNED) ASC",
+        [$company, $type]
+    );
     $results = $wpdb->get_results($query);
-    $response = Array();
+    $response = array();
 
-    for ($i=0; $i < count($results); $i++) { 
+    for ($i = 0; $i < count($results); $i++) {
         $response[] = $results[$i]->insured_sum;
     }
     return $response;
